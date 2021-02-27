@@ -72,7 +72,7 @@ var isPalindrome = function(x) {
  Add letter to temp var
 
  Return result string
-
+ REDO STILL HAS BUGS
 
  */
 var longestCommonPrefix = function(strs) {
