@@ -55,3 +55,39 @@ var isPalindrome = function(x) {
       return isTrue;
   }
 };
+
+/*
+
+ I: Array of string
+ O: String of Letters
+ E: If no common prefix return an empty string
+
+ Create a result string
+ Create a var set to the first element to compare against
+ Iterate over the input array starting at index 1
+ Create a temp var to change result string
+ Set a var for current element
+ Iterate over the current element
+ If current element === firstelement[j]
+ Add letter to temp var
+
+ Return result string
+
+
+ */
+var longestCommonPrefix = function(strs) {
+  let resultString = '';
+  let firstElement = strs[0];
+  for (var i = 1; i < strs.length; i++) {
+      let tempVar = '';
+      let currentElement = strs[i];
+      for (var j = 0; j < currentElement.length; j++) {
+          let secondElement = currentElement[j];
+          if (secondElement === firstElement[j]) {
+              tempVar += secondElement;
+          }
+      }
+      resultString = tempVar;
+  }
+  return resultString;
+};
