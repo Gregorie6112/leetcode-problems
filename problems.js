@@ -27,3 +27,23 @@ var twoSum = function(nums, target) {
   }
   return 'no matches';
 };
+
+/*
+
+Given an integer x, return true if x is palindrome integer.
+
+An integer is a palindrome when it reads the same backward as forward. For example, 121 is palindrome while 123 is not.
+
+ Create a result boolean set to false
+ String the input and split it and reverse it
+ Join the reversed string and turn it into a number
+ Compare the reversed string to input string
+ If the reversed string is === input
+ Return true
+ else
+ Return false
+*/
+
+var isPalindrome = function(x) {
+
+};
