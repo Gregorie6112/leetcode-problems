@@ -45,5 +45,13 @@ An integer is a palindrome when it reads the same backward as forward. For examp
 */
 
 var isPalindrome = function(x) {
-
+  let isTrue = false;
+  let reversedInput = x.toString().split('').reverse();
+  let joinedString = Number(reversedInput.join(''));
+  if (joinedString === x) {
+      isTrue = true
+      return isTrue;
+  } else {
+      return isTrue;
+  }
 };
