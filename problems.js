@@ -91,3 +91,38 @@ var longestCommonPrefix = function(strs) {
   }
   return resultString;
 };
+
+/*
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+68/91 test cases passed, still errors
+ */
+var isValid = function(s) {
+  let pairs = {
+      '(': ')',
+      '[': ']',
+      '{': '}'
+  };
+  let resultVar = false;
+  for (var i = 0; i < s.length; i++) {
+      let currentElement = s[i];
+      let nextElement = s[i + 1];
+      if (currentElement === '(' || currentElement === '[' || currentElement === '{') {
+          if (nextElement === pairs[currentElement]) {
+              resultVar = true;
+          } else {
+          let lastElement = s[s.length - 1 - i];
+            if (pairs[currentElement] === lastElement) {
+              resultVar = true;
+              } else {
+              return false;
+              }
+          }
+      }
+  }
+  return resultVar;
+};
