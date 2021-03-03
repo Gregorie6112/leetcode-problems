@@ -126,3 +126,55 @@ var isValid = function(s) {
   }
   return resultVar;
 };
+/*
+Alice has n candies, where the ith candy is of type candyType[i]. Alice noticed that she started to gain weight, so she visited a doctor.
+
+The doctor advised Alice to only eat n / 2 of the candies she has (n is always even). Alice likes her candies very much, and she wants to eat the maximum number of different types of candies while still following the doctor's advice.
+
+Given the integer array candyType of length n, return the maximum number of different types of candies she can eat if she only eats n / 2 of them
+*/
+var distributeCandies = function(candyType) {
+    let ableToEat = candyType.length / 2;
+    var newObject = {};
+    for(var i = 0; i < candyType.length; i++) {
+        if (newObject[candyType[i]] === undefined) {
+            newObject[candyType[i]] = 1;
+        } else {
+            newObject[candyType[i]]++;
+        }
+    }
+    if (Object.keys(newObject).length > ableToEat) {
+        return ableToEat;
+    } else {
+        return Object.keys(newObject).length;
+    }
+};
+
+/*
+Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+
+Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
+
+ Sort the array
+ Set a current number = 0
+ Set an increment number = 0
+ while current number = 0
+ If sortedarray.indexOf(incrementnumber) === -1
+ Set the current number = increment number
+ Else
+ Increment the increment number
+ Return current number
+ */
+var missingNumber = function(nums) {
+    let sortedArray = nums.sort();
+    let returnNumber = 0;
+    let incrementNumber = 0;
+
+    while(returnNumber === 0) {
+        if (sortedArray.indexOf(incrementNumber) === -1) {
+            return incrementNumber;
+        } else {
+            incrementNumber++;
+        }
+    }
+};
