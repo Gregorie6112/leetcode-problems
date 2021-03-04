@@ -205,7 +205,30 @@ var rotate = function(nums, k) {
     while(k > 0) {
         let number = nums.pop();
         nums.unshift(number);
-        k--
+        k--;
     }
     return nums;
+};
+/*
+Given an array of integers, find if the array contains any duplicates.
+
+Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+Set a tempObject
+iterate over nums array
+if the tempObject[array[i]] === undefined
+Set it to 1 in the tempobject
+Else
+return true
+return false
+*/
+var containsDuplicate = function(nums) {
+    let tempObj = {};
+    for (var i = 0; i < nums.length; i++) {
+        if (tempObj[nums[i]] === undefined) {
+            tempObj[nums[i]] = 1;
+        } else {
+            return true;
+        }
+    }
+    return false;
 };
