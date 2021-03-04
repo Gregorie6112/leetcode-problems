@@ -232,3 +232,31 @@ var containsDuplicate = function(nums) {
     }
     return false;
 };
+
+/*
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+Create a temp Object
+iterate over the nums array
+if the current element is not in the array set it to 1
+
+iterate over the tempobject
+if the value is = 0
+return the key
+ */
+var singleNumber = function(nums) {
+    let result = 0;
+    let tempObj = {};
+    nums.forEach((el) => {
+        if (tempObj[el] === undefined) {
+            tempObj[el] = 1;
+        } else {
+            tempObj[el]++
+        }
+    })
+    for (var key in tempObj) {
+        if (tempObj[key] === 1) {
+            result = key;
+        }
+    }
+    return result;
+};
