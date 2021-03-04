@@ -178,3 +178,17 @@ var missingNumber = function(nums) {
         }
     }
 };
+/*
+Remove duplicates from an array
+*/
+var removeDuplicates = function(nums) {
+    let tempObj = {};
+    var length = nums.length;
+    for (var i = 0; i < length; i++) {
+        let currentElement = nums[i];
+        if (tempObj[currentElement] === undefined) {
+            tempObj[currentElement] = 1
+        }
+    }
+    return Object.keys(tempObj);
+};
