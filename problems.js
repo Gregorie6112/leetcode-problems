@@ -192,3 +192,20 @@ var removeDuplicates = function(nums) {
     }
     return Object.keys(tempObj);
 };
+
+/*
+Given an array, rotate the array to the right by k steps, where k is non-negative.
+
+while k > 0
+set a var = pop the last number off the nums array
+add it to the front of nums array
+decrement k
+ */
+var rotate = function(nums, k) {
+    while(k > 0) {
+        let number = nums.pop();
+        nums.unshift(number);
+        k--
+    }
+    return nums;
+};
