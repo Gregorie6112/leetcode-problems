@@ -389,3 +389,33 @@ var findNumbers = function(nums) {
     }
     return counter;
   };
+  /*
+Create a temp object
+iterate over the input
+If the current element is undefined in tempobject
+Set it to 1
+else
+increment the value
+
+Turn the tempObject values into an array
+Grab the largest value in the tempObj array
+Find that value in the tempObj
+Return it
+ */
+var majorityElement = function(nums) {
+    let temp = {};
+    let res = 0;
+    nums.forEach((el) => {
+      if (temp[el] === undefined) {
+        temp[el] = 1;
+      } else {
+        temp[el]++;
+      }
+    })
+     let newArr = Math.max(...Object.values(temp));
+     for (var key in temp) {
+       if (temp[key] === newArr) {
+         return key;
+       }
+     }
+   };
