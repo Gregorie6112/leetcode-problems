@@ -337,3 +337,34 @@ var runningSum = function(nums) {
   }
   return resultArray;
 };
+/*
+Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+
+Create a result array
+Iterate over the nums input
+create a count to count how many numbers are less
+Create a current var
+Create a second iteration
+Create a second var
+If current < second
+Increment the count
+
+Push the count number into the result Array
+
+return resultarray
+ */
+var smallerNumbersThanCurrent = function(nums) {
+    let resultArray = [];
+    for (var i = 0; i < nums.length; i++) {
+      let count = 0;
+      let current = nums[i];
+      for (var j = 0; j < nums.length; j++) {
+        let second = nums[j];
+        if (current > second) {
+          count++;
+        }
+      }
+      resultArray.push(count);
+    }
+    return resultArray;
+  };
