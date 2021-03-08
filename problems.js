@@ -300,3 +300,40 @@ var firstUniqChar = function(s) {
     }
   return -1;
 };
+/*
+Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+
+Return the running sum of nums.
+
+Create a resultArray
+Create a tempObj
+Iterate over the input array
+Set every number in the array = to 1 in the object
+If the current index is 0
+dont add
+Else
+Iterate over the tempObject keys and add all numbers
+Set the number to current element
+
+Return the resultArray
+ */
+var runningSum = function(nums) {
+    let resultArray = [];
+    let tempObj = {};
+    let count = 0;
+  for (var i = 0; i < nums.length; i++) {
+      let current = nums[i];
+      tempObj[count] = current;
+      count++;
+      if (i === 0) {
+        resultArray.push(current)
+      } else {
+        let newNumber = 0;
+        Object.values(tempObj).forEach((el) => {
+          newNumber += el;
+        })
+        resultArray.push(newNumber)
+      }
+  }
+  return resultArray;
+};
