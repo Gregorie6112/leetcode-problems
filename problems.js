@@ -368,3 +368,24 @@ var smallerNumbersThanCurrent = function(nums) {
     }
     return resultArray;
   };
+
+  /*
+Create a result counter to return
+Iterate over the array
+Create a current element and string the current
+Split the current element string
+If the split array length is even
+Increment the counter
+
+return counter
+ */
+var findNumbers = function(nums) {
+    let counter = 0;
+    for (var i = 0; i < nums.length; i++) {
+      let current = nums[i].toString().split('');
+      if (current.length % 2 === 0) {
+        counter++;
+      }
+    }
+    return counter;
+  };
