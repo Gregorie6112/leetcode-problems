@@ -270,3 +270,33 @@ var deleteNode = function(node) {
     node.val = node.next.val;
     node.next = node.next.next;
 };
+
+/*
+Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1.
+
+Create a temp object
+Iterate over the string
+If tempObj[current] === undefined
+tempObj[current] = 1
+
+Iterate over the tempObj
+If the value is 1 grab the key
+Return s.indexOf(key)
+ */
+var firstUniqChar = function(s) {
+    let tempObj = {};
+    for (var i = 0; i < s.length; i++) {
+      let current = s[i];
+      if (tempObj[current] === undefined) {
+        tempObj[current] = 1;
+      } else {
+        tempObj[current]++;
+      }
+    }
+    for (var key in tempObj) {
+      if (tempObj[key] === 1) {
+        return s.indexOf(key);
+      }
+    }
+  return -1;
+};
