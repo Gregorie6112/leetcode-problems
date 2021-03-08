@@ -419,3 +419,51 @@ var majorityElement = function(nums) {
        }
      }
    };
+   /*
+Create a temp obj
+Create a result number = 0
+Iterate over the input array
+Set a add var
+Set a current var
+Set a second var i + 1
+If the current number is > second
+Set add var = Subtract the current number - second
+Else
+Set add var = Add the current number + second number
+
+If add var > result number
+Set the result number to be add var
+
+if (result number < 0)
+return 0
+else
+Return result number
+   */
+   var getRange = (num1, num2) => {
+    let arr = [];
+    for (var i = num1; i < num2; i++) {
+      arr.push(i);
+    }
+    return arr.length;
+  }
+  var maxProfit = function(prices) {
+    let temp = {};
+    let result = 0;
+    prices.forEach((el, index) => {
+      let resultVar = 0;
+      for (var i = index + 1; i < prices.length; i++) {
+        let second = prices[i];
+        if (el > second) {
+          resultVar = second - el;
+        } else if (second === el) {
+          resultVar = 0;
+        } else {
+          resultVar = getRange(el, second);
+        }
+       if (resultVar > result) {
+        result = resultVar;
+       }
+      }
+    })
+    return result;
+  };
