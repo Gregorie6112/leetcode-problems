@@ -17,7 +17,7 @@ var twoSum = function(nums, target) {
   var results = [];
   for (var i = 0; i < nums.length; i++) {
       let currentNumber = nums[i];
-      for (var j = i; j < nums.length; j++) {
+      for (var j = i + 1; j < nums.length; j++) {
           let secondNumber = nums[j];
           if (currentNumber + secondNumber === target) {
               results.push(i, j);
