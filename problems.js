@@ -467,3 +467,24 @@ Return result number
     })
     return result;
   };
+  /*
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+
+There is only one repeated number in nums, return this repeated number.
+*/
+var findDuplicate = function(nums) {
+    let temp = {};
+      nums.forEach((el) => {
+        if (temp[el] === undefined) {
+          temp[el] = 1;
+        } else {
+          temp[el]++;
+        }
+      })
+    for (var key in temp) {
+      if (temp[key] > 1) {
+        return key;
+      }
+    }
+      return 0;
+  };
