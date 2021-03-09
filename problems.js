@@ -488,3 +488,30 @@ var findDuplicate = function(nums) {
     }
       return 0;
   };
+  /*
+  ALGO EXPERT
+  */
+ /*
+Create a first number count
+Iterate over the array input
+If current element === firstNumber
+Increment firstNumber var
+
+If the firstNumber count === sequence.length
+Return true
+Else
+Return false
+*/
+function isValidSubsequence(array, sequence) {
+  let first = 0;
+  array.forEach((el, index) => {
+    if (el === sequence[first]) {
+      first++;
+    }
+  });
+   if (first === sequence.length) {
+     return true;
+   } else {
+     return false;
+   }
+ };
