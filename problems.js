@@ -515,3 +515,18 @@ function isValidSubsequence(array, sequence) {
      return false;
    }
  };
+
+ /*
+Create a result array
+Iterate over the array
+Push the current * current into the result array
+
+Return result array sorted
+*/
+var sortedSquares = function(nums) {
+  let temp = [];
+  nums.forEach((el) => {
+    temp.push(el * el);
+  })
+  return temp.sort((a, b) => a-b);
+};
