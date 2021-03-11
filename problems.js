@@ -530,3 +530,50 @@ var sortedSquares = function(nums) {
   })
   return temp.sort((a, b) => a-b);
 };
+
+/*
+Create a result string
+Create a temp object
+Iterate over the array
+Iterate over the inside array
+Grab the corresponsing index from current loop that results give us
+If its undefined in the temp object
+Set it to 1
+Else
+increment it
+
+Iterate over the object
+Find the largest value
+And return that key associated with it
+*/
+
+function tournamentWinner(competitions, results) {
+	let res = '';
+	let temp = {};
+	let num = 0;
+	competitions.forEach((el) => {
+		let stringOne = el[0];
+		let stringTwo = el[1];
+			if (results[num] === 0) {
+				if (temp[stringTwo] === undefined) {
+					temp[stringTwo] = 1;
+				} else {
+					temp[stringTwo]++;
+				}
+			} else if (results[num] === 1){
+				if (temp[stringOne] === undefined) {
+					temp[stringOne] = 1;
+				} else {
+					temp[stringOne]++;
+				}
+			}
+		num++;
+	})
+	let max = Math.max(...Object.values(temp));
+	for (var key in temp) {
+		if (temp[key] === max) {
+			return key;
+		}
+	}
+	return '';
+}
