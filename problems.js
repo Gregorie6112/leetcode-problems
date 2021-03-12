@@ -576,4 +576,4 @@ function tournamentWinner(competitions, results) {
 		}
 	}
 	return '';
-}
+};
