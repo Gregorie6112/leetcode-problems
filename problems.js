@@ -582,11 +582,17 @@ function tournamentWinner(competitions, results) {
 Find closest value in a BST
 */
 function findClosestValueInBst(tree, target) {
-  let res = 0;
-	let values = [];
-	let temp = {};
+  let res = tree.value;
+	let closest = tree.value;
 	let seperate = (node) => {
-		values.push(node.value);
+		let val = Math.abs(node.value - target);
+		if (closest === node.value) {
+			return closest;
+		}
+		if (val < res) {
+			res = val;
+			closest = node.value;
+		}
 		if (node.left !== null) {
 			seperate(node.left);
 			if (node.right !== null) {
@@ -595,17 +601,12 @@ function findClosestValueInBst(tree, target) {
 		} else {
 			if (node.right !== null) {
 				seperate(node.right);
+				if (node.left !== null) {
+					seperate(node.left);
+				}
 			}
 		}
-
 	}
 (target < tree.value) ? seperate(tree.left) : seperate(tree.right);
-values = values.sort((a,b) => a-b);
-values.forEach((el) => {
-	let val = el - target;
-	if (temp[val] === undefined) {
-		temp[el] = val;
-	}
-});
-	console.log(temp)
+	return closest;
 }
