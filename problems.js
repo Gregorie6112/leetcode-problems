@@ -581,3 +581,31 @@ function tournamentWinner(competitions, results) {
 /*
 Find closest value in a BST
 */
+function findClosestValueInBst(tree, target) {
+  let res = 0;
+	let values = [];
+	let temp = {};
+	let seperate = (node) => {
+		values.push(node.value);
+		if (node.left !== null) {
+			seperate(node.left);
+			if (node.right !== null) {
+				seperate(node.right);
+			}
+		} else {
+			if (node.right !== null) {
+				seperate(node.right);
+			}
+		}
+
+	}
+(target < tree.value) ? seperate(tree.left) : seperate(tree.right);
+values = values.sort((a,b) => a-b);
+values.forEach((el) => {
+	let val = el - target;
+	if (temp[val] === undefined) {
+		temp[el] = val;
+	}
+});
+	console.log(temp)
+}
