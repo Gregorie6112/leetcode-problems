@@ -55,7 +55,16 @@ var isPalindrome = function(x) {
       return isTrue;
   }
 };
-
+// Implementation number 2 incase word contained spaces
+function isPalindrome(string) {
+	let cur = string.split('').join('');
+  let reversed = string.split('').reverse().join('');
+	if (cur == reversed) {
+		return true;
+	} else {
+		return false;
+	}
+}
 /*
 
  I: Array of string
