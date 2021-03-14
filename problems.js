@@ -618,4 +618,4 @@ function findClosestValueInBst(tree, target) {
 	}
 (target < tree.value) ? seperate(tree.left) : seperate(tree.right);
 	return closest;
-}
+};
