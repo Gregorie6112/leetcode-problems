@@ -668,3 +668,19 @@ function nodeDepthsHelper(tree,sum,arr) {
 	nodeDepthsHelper(tree.right, sum + 1, arr);
 return arr;
 }
+
+/*
+Implement Depth First Search method on the Node Class which takes an empty array, traverses teh tree using the Depth First Search approach , stores all the nodes names in the input array and returns it
+*/
+depthFirstSearch(array) {
+  let depthFirstHelper = (arr) => {
+    if (arr === null) return;
+    array.push(arr.name);
+    if (arr.children.length === 0) return;
+    arr.children.forEach((el) => {
+    depthFirstHelper(el);
+    });
+  }
+  depthFirstHelper(this);
+  return array;
+}
