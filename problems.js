@@ -684,3 +684,37 @@ depthFirstSearch(array) {
   depthFirstHelper(this);
   return array;
 }
+/*
+
+    Each student in the back row must be strictly taller than the student
+    directly in front of them in the front row.
+
+  You're given two input arrays: one containing the heights of all the students
+  with red shirts and another one containing the heights of all the students
+  with blue shirts. These arrays will always have the same length, and each
+  height will be a positive integer. Write a function that returns whether or
+  not a class photo that follows the stated guidelines can be taken.
+*/
+function classPhotos(redShirtHeights, blueShirtHeights) {
+	redShirtHeights = redShirtHeights.sort((a,b) => a-b);
+  blueShirtHeights = blueShirtHeights.sort((a,b) => a-b);
+	let red = redShirtHeights[0];
+	let blue = blueShirtHeights[0];
+	if (red === blue) {
+			blue = blueShirtHeights[1];
+	}
+	for (var i = 0; i < redShirtHeights.length; i++) {
+		let cur = redShirtHeights[i];
+		let sec = blueShirtHeights[i];
+		if (red > blue) {
+			if (cur <= sec) {
+				return false;
+			}
+		} else {
+			if (cur >= sec) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
