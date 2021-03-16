@@ -620,7 +620,7 @@ function findClosestValueInBst(tree, target) {
 	return closest;
 };
 /*
-Write a function that takes in a Binart Tree and returns a list of its branch sums ordered from left to right branch sum;
+Write a function that takes in a Binary Tree and returns a list of its branch sums ordered from left to right branch sum;
 */
 function branchSumsAdd(tree, array, sumUp) {
 	if (tree === null) {
@@ -640,4 +640,31 @@ function branchSums(root) {
 	let returnArr = [];
 	branchSumsAdd(root, returnArr, 0);
 	return returnArr;
+}
+/*
+Node Depths
+Write a function that takes in a binary Tree and returns the sum of the nodes depths
+*/
+function nodeDepths(root) {
+  let depth = 0;
+	let arr = [];
+	nodeDepthsHelper(root,depth,arr);
+	arr.forEach((el) => {
+		depth += el;
+	});
+	return depth;
+}
+function nodeDepthsHelper(tree,sum,arr) {
+	if (tree === null) {
+		return;
+	}
+	if (sum !== 0) {
+		arr.push(sum);
+	}
+	if (tree.left === null && tree.right === null) {
+		return;
+	}
+	nodeDepthsHelper(tree.left, sum + 1, arr);
+	nodeDepthsHelper(tree.right, sum + 1, arr);
+return arr;
 }
