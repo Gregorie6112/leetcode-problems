@@ -619,3 +619,25 @@ function findClosestValueInBst(tree, target) {
 (target < tree.value) ? seperate(tree.left) : seperate(tree.right);
 	return closest;
 };
+/*
+Write a function that takes in a Binart Tree and returns a list of its branch sums ordered from left to right branch sum;
+*/
+function branchSumsAdd(tree, array, sumUp) {
+	if (tree === null) {
+		return;
+	}
+	sumUp += tree.value;
+	if (tree.left === null && tree.right === null) {
+		array.push(sumUp);
+		return;
+	} else {
+		branchSumsAdd(tree.left, array, sumUp);
+		branchSumsAdd(tree.right, array, sumUp);
+	}
+	return array;
+}
+function branchSums(root) {
+	let returnArr = [];
+	branchSumsAdd(root, returnArr, 0);
+	return returnArr;
+}
