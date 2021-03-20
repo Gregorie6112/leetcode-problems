@@ -218,4 +218,4 @@ function classPhotos(redShirtHeights, blueShirtHeights) {
 		}
 	}
 	return true;
-}
+};
