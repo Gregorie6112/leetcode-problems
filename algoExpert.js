@@ -219,3 +219,25 @@ function classPhotos(redShirtHeights, blueShirtHeights) {
 	}
 	return true;
 };
+/*
+Remove Duplicate from linkedlist
+*/
+function removeDupHelper(list) {
+	if (list === null) {
+		return;
+	}
+		let cur = list.value;
+		let next = list.next.value;
+		let replace = list.next.next;
+		if (cur === next) {
+		  list.next = replace;
+		  removeDupHelper(list);
+		} else {
+		  removeDupHelper(list.next);
+		}
+	return list;
+};
+
+function removeDuplicatesFromLinkedList(linkedList) {
+	return removeDupHelper(linkedList);
+}
