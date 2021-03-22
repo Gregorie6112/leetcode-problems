@@ -222,22 +222,33 @@ function classPhotos(redShirtHeights, blueShirtHeights) {
 /*
 Remove Duplicate from linkedlist
 */
-function removeDupHelper(list) {
+function removeDupHelper(list, temp) {
 	if (list === null) {
 		return;
 	}
 		let cur = list.value;
-		let next = list.next.value;
-		let replace = list.next.next;
-		if (cur === next) {
-		  list.next = replace;
-		  removeDupHelper(list);
-		} else {
-		  removeDupHelper(list.next);
+	  if (temp.includes(cur) === false) {
+			temp.push(cur);
 		}
+    removeDupHelper(list.next, temp);
 	return list;
 };
 
 function removeDuplicatesFromLinkedList(linkedList) {
-	return removeDupHelper(linkedList);
+  // Write your code here.
+	let temp = [];
+	removeDupHelper(linkedList, temp);
+	let newList = {};
+	temp.forEach((el,index) => {
+		if (Object.keys(newList).length === 0) {
+			newList = new LinkedList(el);
+		} else {
+			let lastNode = newList;
+			while (lastNode.next !== null) {
+				lastNode = lastNode.next;
+			}
+			lastNode.next = new LinkedList(el);
+		}
+	});
+	return newList;
 }
